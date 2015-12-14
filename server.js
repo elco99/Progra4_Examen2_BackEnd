@@ -14,7 +14,7 @@ server.connection({
               }
 });
 
-mongoose.connect('mongodb://zsnake:password@ds049104.mongolab.com:49104/angular-scaffold');
+mongoose.connect('mongodb://admin:admin@dbh11.mongolab.com:27117/user');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));

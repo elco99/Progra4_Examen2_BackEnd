@@ -1,4 +1,4 @@
-var user = require('../schemas/user');
+var user = require('../schemas/usuario');
 var SHA3 = require("crypto-js/sha3");
 var boom = require('boom');
 
