@@ -4,6 +4,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var UserSchema = new mongoose.Schema({
   username : {type: String, unique: true, required: true},
   password : String,
+  estado: Boolean
 });
 
 UserSchema.plugin(uniqueValidator);

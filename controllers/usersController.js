@@ -12,7 +12,7 @@ exports.createUser = {
        var newUser = new user({
          username : request.payload.username,
          password : SHA3(request.payload.password),
-         scope : request.payload.scope
+         estado : true
        });
        newUser.save(function (err) {
          console.log(err);
@@ -23,4 +23,46 @@ exports.createUser = {
          };
       });
     }
+  };
+
+  exports.GetUsuario = {
+    handler: function(request, reply){
+      var users = user.find({});
+      reply(users);
+    }
+  };
+
+  exports.PostUsuario = {
+    handler: function(request, reply) {
+      var newUser = new user({
+        username: request.payload.username,
+        password: SHA3(request.payload.password)
+      });
+       newUser.save(function (err) {
+         if(err){
+          return reply(boom.notAcceptable('Username must be unique: ' + err));
+         }else{
+           return reply('ok');
+         };
+      });
+    }
+  };
+
+  exports.PutUsuario = {
+    handler: function(request,reply){
+
+    user.findOne({username: request.payload.username},function(err,users){
+      
+      if (request.payload.estado === "true") {
+        users.estado = true;
+      }else{
+        users.estado = false;
+      };
+
+      users.save(function(err){
+        if(err) throw err;
+      })
+    })
+
+  }
   };

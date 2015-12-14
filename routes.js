@@ -7,5 +7,8 @@ exports.endpoints = [{method: 'GET', path: '/', config: {handler: function(reque
   {method: 'POST', path: '/v1/regalo', config: regalosController.createRegalo},
 	{method: 'POST', path: '/v1/register', config: usersController.createUser},
 	{method: 'POST', path: '/v1/login', config: authController.login},
-	{method: 'GET', path: '/v1/logout', config: authController.logout}
+	{method: 'GET', path: '/v1/logout', config: authController.logout},
+	{method: 'GET', path: '/v1/user/get', config: usersController.GetUsuario},
+	{method: 'POST', path: '/v1/user/post', config: usersController.PostUsuario},
+	{method: 'PUT', path: '/v1/user/put', config: usersController.PutUsuario}
 ];
