@@ -5,7 +5,8 @@ var RegaloSchema = new mongoose.Schema({
   descripcion : String,
   peso: Number,
   destinario: String,
-  status: String
+  status: String,
+  estado: Boolean
 });
 
 module.exports = mongoose.model('Regalo', RegaloSchema);
